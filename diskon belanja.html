@@ -1,0 +1,122 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Program Diskon Belanja</title>
+
+<style>
+body{
+font-family:Arial;
+background:#e8f0fe;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+background:white;
+padding:25px;
+border-radius:10px;
+width:350px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+h2{
+text-align:center;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+button{
+width:100%;
+padding:10px;
+margin-top:5px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.hitung{
+background:#2ecc71;
+color:white;
+}
+
+.reset{
+background:#e74c3c;
+color:white;
+}
+
+.hasil{
+margin-top:15px;
+background:#f5f5f5;
+padding:10px;
+border-radius:5px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="box">
+
+<h2>Program Diskon</h2>
+
+<label>Total Belanja</label>
+<input type="number" id="belanja" placeholder="Masukkan total belanja">
+
+<button class="hitung" onclick="hitung()">Hitung</button>
+
+<div class="hasil">
+<p>Diskon : <span id="diskon">0%</span></p>
+<p>Total Bayar : <span id="bayar">Rp 0</span></p>
+</div>
+
+<button class="reset" onclick="resetData()">Reset</button>
+
+</div>
+
+<script>
+
+function hitung(){
+
+let belanja = document.getElementById("belanja").value;
+let diskon = 0;
+
+if(belanja >= 500000){
+diskon = 20;
+}
+else if(belanja >= 200000){
+diskon = 10;
+}
+else{
+diskon = 0;
+}
+
+let total = belanja - (belanja * diskon / 100);
+
+document.getElementById("diskon").innerHTML = diskon + "%";
+document.getElementById("bayar").innerHTML = "Rp " + total;
+
+}
+
+function resetData(){
+
+document.getElementById("belanja").value="";
+document.getElementById("diskon").innerHTML="0%";
+document.getElementById("bayar").innerHTML="Rp 0";
+
+}
+
+</script>
+
+</body>
+</html>
+```
